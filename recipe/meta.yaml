@@ -145,5 +145,4 @@ about:
 extra:
   feedstock-name: diplib
   recipe-maintainers:
-    - goanpeca
     - jaimergp
