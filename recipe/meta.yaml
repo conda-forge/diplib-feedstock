@@ -13,7 +13,7 @@ source:
     - vendored_deps.patch
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win]
 
 outputs:
@@ -30,12 +30,6 @@ outputs:
         - make
         - llvm-openmp  # [osx]
         - libgomp      # [linux]
-        - {{ cdt('mesa-libgl-devel') }}  # [linux]
-        - {{ cdt('mesa-dri-drivers') }}  # [linux]
-        - {{ cdt('libselinux') }}  # [linux]
-        - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxxf86vm') }}  # [linux]
-        - {{ cdt('libxext') }}     # [linux]
       host:
         - freeglut  # [linux]
         - xorg-libxfixes  # [linux]
@@ -51,6 +45,7 @@ outputs:
         - eigen
         - pybind11
         - pybind11-abi
+        - libgl-devel                    # [linux]
       run:
         - {{ pin_compatible('glfw', max_pin='x.x') }}
     test:
@@ -89,12 +84,6 @@ outputs:
         - make
         - llvm-openmp  # [osx]
         - libgomp      # [linux]
-        - {{ cdt('mesa-libgl-devel') }}  # [linux]
-        - {{ cdt('mesa-dri-drivers') }}  # [linux]
-        - {{ cdt('libselinux') }}  # [linux]
-        - {{ cdt('libxdamage') }}  # [linux]
-        - {{ cdt('libxxf86vm') }}  # [linux]
-        - {{ cdt('libxext') }}     # [linux]
       host:
         - python
         - pip
@@ -114,6 +103,7 @@ outputs:
         - pybind11
         - pybind11-abi
         - {{ pin_subpackage('diplib', exact=True) }}
+        - libgl-devel                    # [linux]
       run:
         - python
         - {{ pin_subpackage('diplib', exact=True) }}
